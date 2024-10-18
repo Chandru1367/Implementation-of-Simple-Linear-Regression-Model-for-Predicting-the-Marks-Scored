@@ -17,14 +17,60 @@ To write a program to predict the marks scored by a student using the simple lin
 ```
 /*
 Program to implement the simple linear regression model for predicting the marks scored.
-Developed by: 
-RegisterNumber:  
+Developed by: Chandru.M
+RegisterNumber: 24900224
 */
 ```
-
+import pandas as pd
+import numpy as np
+import matplotlib.pyplot as plt
+from sklearn.metrics import mean_absolute_error, mean_squared_error
+df=pd.read_csv('student_scores.csv')
+print(df)
+df.head(0)
+df.tail(0)
+print(df.head())
+print(df.tail())
+x=df.iloc[:,:-1].values
+print(x)
+y=df.iloc[:,1].values
+print(y)
+from sklearn.model_selection import train_test_split
+x_train,x_test,y_train,y_test=train_test_split(x,y,test_size=1/3,random_state=0)
+from sklearn.linear_model import LinearRegression
+regressor = LinearRegression()
+regressor.fit(x_train,y_train)
+y_pred = regressor.predict(x_test)
+print(y_pred)
+print(y_test)
+#Graph plot for training data
+plt.scatter(x_train,y_train,color='black')
+plt.plot(x_train, regressor.predict(x_train),color='blue') 
+plt.title("Hours vs Scores (Training set)")
+plt.xlabel("Hours")
+plt.ylabel("Scores")
+plt.show()
+#Graph plot for test data
+plt.scatter(x_test,y_test,color='black')
+plt.plot(x_train, regressor.predict(x_train),color='red')
+plt.title("Hours vs Scores (Testing set)")
+plt.xlabel("Hours")
+plt.ylabel("Scores")
+plt.show()
+mse=mean_absolute_error(y_test,y_pred)
+print('MSE=',mse)
+mae=mean_absolute_error(y_test,y_pred)
+print('MAE=',mae)
+rmse=np.sqrt(mse)
+print("RMSE= ",rmse)
 ## Output:
 ![simple linear regression model for predicting the marks scored](sam.png)
-
+![Screenshot 2024-10-18 143514](https://github.com/user-attachments/assets/e062401b-d14f-4c9d-9fe4-a30dd255f210)
+![Screenshot 2024-10-18 143502](https://github.com/user-attachments/assets/d1646b85-01c9-4119-b02b-a57e50569ae5)
+![Screenshot 2024-10-18 143455](https://github.com/user-attachments/assets/6de45eb4-f56e-4a24-b213-ca369e0b7b1b)
+![Screenshot 2024-10-18 143441](https://github.com/user-attachments/assets/edc92cb7-ce43-4da4-90c7-041aa015d8d7)
+![Screenshot 2024-10-18 143433](https://github.com/user-attachments/assets/8c8cb3ea-99f6-45e7-a7e0-5d2651a25046)
+![Screenshot 2024-10-18 143315](https://github.com/user-attachments/assets/26a1f581-1723-47c9-b464-fed259d9fdfa)
 
 ## Result:
 Thus the program to implement the simple linear regression model for predicting the marks scored is written and verified using python programming.
