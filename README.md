@@ -69,6 +69,7 @@ print("RMSE= ",rmse)
 
 ## Output:
 ![Screenshot 2024-10-18 143514](https://github.com/user-attachments/assets/6a82fd2f-6759-42e4-8bd9-dab143d2f528)
+
 ![Screenshot 2024-10-18 143502](https://github.com/user-attachments/assets/7b77ce6d-2ebd-4456-a179-ba2cd6b3b9a4)
 ![Screenshot 2024-10-18 143455](https://github.com/user-attachments/assets/60747aa6-d508-4729-9389-fd2a288d9826)
 ![Screenshot 2024-10-18 143441](https://github.com/user-attachments/assets/449efaeb-7b9f-43d9-af14-3b71f341961d)
